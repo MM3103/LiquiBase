@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/lb1}
+    username:  ${DB_USERNAME:postgres}
+    password:  ${DB_PASSWORD:1234}
+  liquibase:
+    enabled: true
+    change-log: ${LIQUIBASE_CHANGE-LOG:classpath:db/postgres/changelogs.xml}
+    contexts: dev
+    default-schema: junior
+  application:
+    name: ${APPLICATION_NAME:LiquiBase }
+  main:
+    allow-circular-references: true
+server:
+  port: ${SERVER_PORT:8484}

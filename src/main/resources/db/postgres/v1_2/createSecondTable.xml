@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2" author="admin" >
+        <createTable tableName="udf_fielditem" schemaName="junior">
+            <column name="item_id" type="uuid" >
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="field_id" type="uuid">
+            </column>
+            <column name="comment" type="varchar(255)">
+            </column>
+            <column name="updated_dt" type="TIMESTAMP WITHOUT TIME ZONE">
+            </column>
+            <column name="vol" type="varchar(255)">
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="udf_fielditem" baseColumnNames="field_id"
+                                 constraintName="field_fk"
+                                 referencedTableName="udf_field" referencedColumnNames="field_id"/>
+    </changeSet>
+</databaseChangeLog>
